@@ -4,18 +4,18 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class UserRegistrerDTO {
+public class UserRegisterDTO {
 
 	private @NotBlank @Size(min = 2, max = 25) String name;
 	private @NotBlank @Email String email;
 	private @NotBlank @Size(min = 2, max = 25) String password;
 
 
-	public UserRegistrerDTO() {
+	public UserRegisterDTO() {
 		
 	}
 	
-	public UserRegistrerDTO(@NotBlank @Size(min = 2, max = 25) String name, @NotBlank @Email String email,
+	public UserRegisterDTO(@NotBlank @Size(min = 2, max = 25) String name, @NotBlank @Email String email,
 			@NotBlank @Size(min = 2, max = 25) String password) {
 		this.name = name;
 		this.email = email;

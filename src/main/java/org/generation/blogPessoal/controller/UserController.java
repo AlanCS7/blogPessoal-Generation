@@ -5,7 +5,7 @@ import javax.validation.Valid;
 import org.generation.blogPessoal.model.UserModel;
 import org.generation.blogPessoal.model.dtos.UserCredentialsDTO;
 import org.generation.blogPessoal.model.dtos.UserLoginDTO;
-import org.generation.blogPessoal.model.dtos.UserRegistrerDTO;
+import org.generation.blogPessoal.model.dtos.UserRegisterDTO;
 import org.generation.blogPessoal.repository.UserRepository;
 import org.generation.blogPessoal.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class UserController {
 	private @Autowired UserService service;
 	
 	@PostMapping("/save")
-	public ResponseEntity<UserModel> save(@Valid @RequestBody UserRegistrerDTO newUser){
+	public ResponseEntity<UserModel> save(@Valid @RequestBody UserRegisterDTO newUser){
 		return service.registerUser(newUser);
 	}
 	

@@ -9,7 +9,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.generation.blogPessoal.model.UserModel;
 import org.generation.blogPessoal.model.dtos.UserCredentialsDTO;
 import org.generation.blogPessoal.model.dtos.UserLoginDTO;
-import org.generation.blogPessoal.model.dtos.UserRegistrerDTO;
+import org.generation.blogPessoal.model.dtos.UserRegisterDTO;
 import org.generation.blogPessoal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,7 +42,7 @@ public class UserService {
 		return "Basic " +  new String(tokenModelBase64);
 	}
 	
-	public ResponseEntity<UserModel> registerUser(@Valid UserRegistrerDTO newUser){
+	public ResponseEntity<UserModel> registerUser(@Valid UserRegisterDTO newUser){
 		Optional<UserModel> optional = repository.findByEmail(newUser.getEmail());
 		
 		if (optional.isPresent()) {

@@ -28,13 +28,13 @@ public class PostagemController {
 	@Autowired
 	private PostagemRepository repository;
 	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<Postagem>> findAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<Postagem> findById(@PathVariable(value = "id_user") long id){
+	@GetMapping("/id/{id}")
+	public ResponseEntity<Postagem> findById(@PathVariable(value = "id") long id){
 		return repository.findById(id).map(resp -> ResponseEntity.status(200).body(resp))
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Id não existe"));
 	}

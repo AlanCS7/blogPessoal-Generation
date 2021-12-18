@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping("/tema")
+@RequestMapping("/temas")
 @CrossOrigin
 public class TemaController {
 
@@ -40,8 +40,8 @@ public class TemaController {
 	}
 
 	@GetMapping("/tema/{tema}")
-	public ResponseEntity<List<Tema>> getByTema(@PathVariable String descricao) {
-		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(descricao));
+	public ResponseEntity<List<Tema>> getByTema(@PathVariable String tema) {
+		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(tema));
 	}
 
 	@PostMapping("/save")
