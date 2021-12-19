@@ -33,6 +33,12 @@ public class UserModel {
 	public UserModel() {
 
 	}
+	
+	public UserModel(String name, String email, String password) {
+		this.nome = name;
+		this.email = email;
+		this.senha = password;
+	}
 
 	public UserModel(String token, String nome, String email, String senha) {
 		this.token = token;
