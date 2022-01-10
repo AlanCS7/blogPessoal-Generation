@@ -61,7 +61,7 @@ class UserRepositoryTest {
 	void searchFromBoazReturnFiveUsers() {
 		
 		//When
-		List<UserModel> list = repository.findAllByNameContainingIgnoreCase("Alan");
+		List<UserModel> list = repository.findAllByNomeContainingIgnoreCase("Alan");
 		
 		//Then
 		assertEquals(5, list.size());
@@ -72,7 +72,7 @@ class UserRepositoryTest {
 	void searchFromHerculesReturnOneUser() {
 		
 		//When
-		List<UserModel> list = repository.findAllByNameContainingIgnoreCase("Murilo");
+		List<UserModel> list = repository.findAllByNomeContainingIgnoreCase("Murilo");
 		
 		//Then
 		assertEquals(1, list.size());
