@@ -36,7 +36,7 @@ class UserControllerTest {
 	void saveNewUserReturn201() {
 		//Given
 		HttpEntity<UserRegisterDTO> request = new HttpEntity<UserRegisterDTO>(
-				new UserRegisterDTO("Alan Boaz","alan@email.com","134652"));
+				new UserRegisterDTO("Alan Boaz","alan@email.com","134652", "aaaa", "adm"));
 		
 		//When
 		ResponseEntity<UserModel> response =
@@ -51,7 +51,7 @@ class UserControllerTest {
 	@DisplayName("Get credentials User!")
 	void getCredentialsUserReturn200() {
 		//Given
-		services.registerUser(new UserRegisterDTO("Murilo Boaz","murilo@email.com","134652"));
+		services.registerUser(new UserRegisterDTO("Murilo Boaz","murilo@email.com","134652", "aaaa", "adm"));
 		HttpEntity<UserLoginDTO> request = new HttpEntity<UserLoginDTO>(
 				new UserLoginDTO("murilo@email.com","134652"));
 		
@@ -68,7 +68,7 @@ class UserControllerTest {
 	@DisplayName("Get profile User!")
 	void getProfileUserReturn200() {
 		//Given
-		services.registerUser(new UserRegisterDTO("Otaio Boaz","otavio@email.com","134652"));
+		services.registerUser(new UserRegisterDTO("Otaio Boaz","otavio@email.com","134652", "aaaa", "adm"));
 		
 		//When
 		ResponseEntity<UserModel> response =

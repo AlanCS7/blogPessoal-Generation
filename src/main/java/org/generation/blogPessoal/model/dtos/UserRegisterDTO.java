@@ -6,28 +6,30 @@ import javax.validation.constraints.Size;
 
 public class UserRegisterDTO {
 
-	private @NotBlank @Size(min = 2, max = 25) String name;
+	private @NotBlank @Size(min = 2, max = 50) String nome;
 	private @NotBlank @Email String email;
-	private @NotBlank @Size(min = 2, max = 25) String password;
-
+	private @NotBlank @Size(min = 2, max = 40) String senha;
+	private @NotBlank @Size(min = 2) String foto;
+	private @NotBlank String tipo;
 
 	public UserRegisterDTO() {
-		
+
 	}
-	
-	public UserRegisterDTO(@NotBlank @Size(min = 2, max = 25) String name, @NotBlank @Email String email,
-			@NotBlank @Size(min = 2, max = 25) String password) {
-		this.name = name;
+
+	public UserRegisterDTO(String nome, String email, String senha, String foto, String tipo) {
+		this.nome = nome;
 		this.email = email;
-		this.password = password;
+		this.senha = senha;
+		this.foto = foto;
+		this.tipo = tipo;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEmail() {
@@ -38,12 +40,28 @@ public class UserRegisterDTO {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
 }

@@ -19,62 +19,62 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestInstance(Lifecycle.PER_CLASS)
 class UserRepositoryTest {
-	
+
 	private @Autowired UserRepository repository;
-	
+
 	@BeforeAll
 	void start() {
-		
-		//Given
-		repository.save(new UserModel("Alan Boaz", "alan@email.com", "134652"));
-		repository.save(new UserModel("Matheus Boaz", "matheus@email.com", "134652"));
-		repository.save(new UserModel("Mariana Boaz", "mariana@email.com", "134652"));
-		repository.save(new UserModel("Raphaella Boaz", "raphaella@email.com", "134652"));
-		repository.save(new UserModel("Hercules Boaz", "hercules@email.com", "134652"));
-		
+
+		// Given
+		repository.save(new UserModel("sdadasda", "Alan Boaz", "alan@email.com", "134652", "aaaa", "adm"));
+		repository.save(new UserModel("sdadasda", "Matheus Boaz", "matheus@email.com", "134652", "aaaa", "adm"));
+		repository.save(new UserModel("sdadasda", "Mariana Boaz", "mariana@email.com", "134652", "aaaa", "adm"));
+		repository.save(new UserModel("sdadasda", "Raphaella Boaz", "raphaella@email.com", "134652", "aaaa", "adm"));
+		repository.save(new UserModel("sdadasda", "Hercules Boaz", "hercules@email.com", "134652", "aaaa", "adm"));
+
 	}
-	
+
 	@Test
 	@DisplayName("Search valid email!")
 	void searchEmailValidReturnObjectValid() {
-		
-		//When
+
+		// When
 		UserModel user = repository.findByEmail("raphaella@email.com").get();
-		
-		//Then
+
+		// Then
 		assertTrue(user.getNome().equals("Raphaella Boaz"));
 	}
-	
+
 	@Test
 	@DisplayName("Search invalid email!")
 	void searchEmailInvalidReturnOptionalEmpty() {
-		
-		//When
+
+		// When
 		Optional<UserModel> optional = repository.findByEmail("");
-		
-		//Then
+
+		// Then
 		assertTrue(optional.isEmpty());
 	}
-	
+
 	@Test
 	@DisplayName("Search name Alan!")
 	void searchFromBoazReturnFiveUsers() {
-		
-		//When
+
+		// When
 		List<UserModel> list = repository.findAllByNomeContainingIgnoreCase("Alan");
-		
-		//Then
+
+		// Then
 		assertEquals(5, list.size());
 	}
-	
+
 	@Test
 	@DisplayName("Search name Murilo!")
 	void searchFromHerculesReturnOneUser() {
-		
-		//When
+
+		// When
 		List<UserModel> list = repository.findAllByNomeContainingIgnoreCase("Murilo");
-		
-		//Then
+
+		// Then
 		assertEquals(1, list.size());
 	}
 

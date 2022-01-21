@@ -36,7 +36,7 @@ class UserRegisterDTOTest {
 	@DisplayName("Test Error name")
 	void testNameBlankReturnError() {
 		//given
-		dtoError = new UserRegisterDTO("", "josiane@email.com", "134652");
+		dtoError = new UserRegisterDTO("", "josiane@email.com", "134652", "aaaa", "adm");
 		
 		//when
 		validation = validator.validate(dtoError);
@@ -50,7 +50,7 @@ class UserRegisterDTOTest {
 	void testUserRegisterDTONotError() {
 		
 		//given
-		dtoNotError = new UserRegisterDTO("Gustavo Boaz", "gustavo@email.com", "134652");
+		dtoNotError = new UserRegisterDTO("Gustavo Boaz", "gustavo@email.com", "134652", "aaaa", "adm");
 		
 		//when
 		validation = validator.validate(dtoNotError);

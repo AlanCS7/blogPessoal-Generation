@@ -49,10 +49,12 @@ public class UserService {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário já cadastrado!");
 		} else {
 			userModel = new UserModel(
-					generatorToken(newUser.getEmail(), newUser.getPassword()),
-					newUser.getName(),
+					generatorToken(newUser.getEmail(), newUser.getSenha()),
+					newUser.getNome(),
 					newUser.getEmail(),
-					encryptPassword(newUser.getPassword()));
+					encryptPassword(newUser.getSenha()),
+					newUser.getFoto(),
+					newUser.getTipo());
 			
 			return ResponseEntity.status(201).body(repository.save(userModel));
 		}
@@ -62,12 +64,15 @@ public class UserService {
 		return repository.findByEmail(userDTO.getEmail()).map(resp -> {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			
-			if(encoder.matches(userDTO.getPassword(), resp.getSenha())) {
+			if(encoder.matches(userDTO.getSenha(), resp.getSenha())) {
 				credentials = new UserCredentialsDTO(
 						resp.getIdUser(),
+						resp.getNome(),
 						resp.getEmail(),
 						resp.getToken(),
-						generatorTokenBasic(userDTO.getEmail(), userDTO.getPassword()));
+						resp.getFoto(),
+						resp.getTipo(),
+						generatorTokenBasic(userDTO.getEmail(), userDTO.getSenha()));
 			
 				return ResponseEntity.status(200).body(credentials);
 			} else {

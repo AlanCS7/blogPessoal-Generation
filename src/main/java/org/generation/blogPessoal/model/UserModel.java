@@ -26,6 +26,10 @@ public class UserModel {
 
 	private String senha;
 
+	private String foto;
+
+	private String tipo;
+
 	@OneToMany(mappedBy = "userModel", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("userModel")
 	private List<Postagem> postagens;
@@ -33,18 +37,14 @@ public class UserModel {
 	public UserModel() {
 
 	}
-	
-	public UserModel(String name, String email, String password) {
-		this.nome = name;
-		this.email = email;
-		this.senha = password;
-	}
 
-	public UserModel(String token, String nome, String email, String senha) {
+	public UserModel(String token, String nome, String email, String senha, String foto, String tipo) {
 		this.token = token;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.foto = foto;
+		this.tipo = tipo;
 	}
 
 	public Long getIdUser() {
@@ -73,6 +73,22 @@ public class UserModel {
 
 	public String getToken() {
 		return token;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public void setToken(String token) {

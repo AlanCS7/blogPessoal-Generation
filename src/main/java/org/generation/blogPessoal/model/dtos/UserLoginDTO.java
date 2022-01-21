@@ -7,15 +7,15 @@ import javax.validation.constraints.Size;
 public class UserLoginDTO {
 
 	private @NotBlank @Email String email;
-	private @NotBlank @Size(min = 2, max = 25) String password;
+	private @NotBlank @Size(min = 2, max = 25) String senha;
 
 	public UserLoginDTO() {
 
 	}
 
-	public UserLoginDTO(@NotBlank @Email String email, @NotBlank @Size(min = 2, max = 25) String password) {
+	public UserLoginDTO(String email, String senha) {
 		this.email = email;
-		this.password = password;
+		this.senha = senha;
 	}
 
 	public String getEmail() {
@@ -26,12 +26,12 @@ public class UserLoginDTO {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }
