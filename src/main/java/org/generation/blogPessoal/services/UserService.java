@@ -70,9 +70,9 @@ public class UserService {
 						resp.getNome(),
 						resp.getEmail(),
 						resp.getToken(),
+						generatorTokenBasic(userDTO.getEmail(), userDTO.getSenha()),
 						resp.getFoto(),
-						resp.getTipo(),
-						generatorTokenBasic(userDTO.getEmail(), userDTO.getSenha()));
+						resp.getTipo());
 			
 				return ResponseEntity.status(200).body(credentials);
 			} else {
