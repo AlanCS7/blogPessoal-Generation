@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 
 public class UserRegisterDTO {
 
+	private Long idUser;
 	private @NotBlank @Size(min = 2, max = 50) String nome;
 	private @NotBlank @Email String email;
 	private @NotBlank @Size(min = 2, max = 40) String senha;
@@ -62,6 +63,14 @@ public class UserRegisterDTO {
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public Long getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 	
 }

@@ -36,9 +36,10 @@ public class UserController {
 		return service.registerUser(newUser);
 	}
 	
+
 	@PutMapping("/update")
-	public ResponseEntity<UserModel> update(@Valid @RequestBody UserModel newUser){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(newUser));
+	public ResponseEntity<UserModel> update(@Valid @RequestBody UserRegisterDTO newUser){
+		return service.atualizar(newUser);
 	}
 	
 	@PutMapping("/logar")
